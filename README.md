@@ -110,6 +110,8 @@ Dependencies
 body-parser: Parses incoming request bodies.
 dotenv: Loads environment variables from a .env file.
 express: Node.js framework for building web applications.
+
+
 ## Project Structure
 
 ├── app.js          # Main application file
