@@ -50,16 +50,16 @@ node app.js
 - **URL**: `/api/content`
 - **Method**: `GET`
 - **Request Body**:
-  ```json```
+  ```json
   {
     "question": "What is the value of pi in maths?"
-  }
+  }```
 - **Response**:
-```json```
+```json
  
 {
   "result": "The value of pi is approximately 3.14159..."
-}
+}```
 
 
 
