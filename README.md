@@ -39,37 +39,42 @@ API_KEY=your_api_key_here
 node app.js
 
 ## API Endpoints
-Root Endpoint
-URL: /
-Method: GET
-Response:
-"Hello World Gemini!"
-Generate Content
-URL: /api/content
-Method: GET
-Request Body:
-json
-Copy code
-{
-  "question": "What is the value of pi in maths?"
-}
-Response:
-json
-Copy code
+
+### Root Endpoint
+- **URL**: `/`
+- **Method**: `GET`
+- **Response**:  
+  `"Hello World Gemini!"`
+
+### Generate Content
+- **URL**: `/api/content`
+- **Method**: `GET`
+- **Request Body**:
+  ```json```
+  {
+    "question": "What is the value of pi in maths?"
+  }
+- **Response**:
+```json```
+ 
 {
   "result": "The value of pi is approximately 3.14159..."
 }
-Code Highlights
+
+
+
+## Code Highlights
+### Full Code Example
 GoogleGenerativeAI Initialization:
 
-javascript
-Copy code
+```javascript```
+ 
 const genAI = new GoogleGenerativeAI(process.env.API_KEY);
 const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 Generate Content Function:
 
-javascript
-Copy code
+```javascript```
+ 
 const generate = async (prompt) => {
   try {
     const result = await model.generateContent(prompt);
@@ -81,7 +86,7 @@ const generate = async (prompt) => {
 };
 API to Generate Content:
 
-javascript
+```javascript```
 
 app.get('/api/content', async (req, res) => {
   try {
@@ -96,14 +101,14 @@ app.get('/api/content', async (req, res) => {
 Running the Application
 Start the server:
 
-bash
-Copy code
+ ```bash```
+
 node app.js
 Test the API using tools like Postman or CURL:
 
 Example request:
-bash
-Copy code
+ ```bash```
+
 curl -X GET http://localhost:3000/api/content -H "Content-Type: application/json" -d '{"question":"What is the value of pi?"}'
 Dependencies
 @google/generative-ai: Communicates with Google Gemini API.
