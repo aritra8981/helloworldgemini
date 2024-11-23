@@ -123,6 +123,8 @@ express: Node.js framework for building web applications.
 ## Notes
 Ensure your .env file is not included in version control for security purposes.
 The API key must have proper permissions for accessing the Gemini model.
-License
+
+
+## License
 This project is open-source. You are free to use and modify it as per your requirements.
 
