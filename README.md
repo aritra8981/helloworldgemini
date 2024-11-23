@@ -50,31 +50,45 @@ node app.js
 - **URL**: `/api/content`
 - **Method**: `GET`
 - **Request Body**:
-  ```json
+  ```json```
   {
     "question": "What is the value of pi in maths?"
-  }```
+  } 
 - **Response**:
-```json
- 
+```json```
 {
   "result": "The value of pi is approximately 3.14159..."
-}```
-
+}
 
 
 ## Code Highlights
 ### Full Code Example
-GoogleGenerativeAI Initialization:
+
 
 ```javascript```
  
+const { GoogleGenerativeAI } = require("@google/generative-ai"); // Import the GoogleGenerativeAI class from the package
+const bodyParser = require("body-parser");
+require("dotenv").config();
+const express = require("express");
+const app = express();
+
+// Middleware for parsing JSON
+app.use(bodyParser.json());
+app.use(express.json());
+
+// Root endpoint
+app.get("/", (req, res) => {
+  res.send("Hello World Gemini!");
+});
+
+const port = 3000;
+
+// Initialize Google Generative AI
 const genAI = new GoogleGenerativeAI(process.env.API_KEY);
 const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
-Generate Content Function:
 
-```javascript```
- 
+// Function to generate AI-based content
 const generate = async (prompt) => {
   try {
     const result = await model.generateContent(prompt);
@@ -84,10 +98,8 @@ const generate = async (prompt) => {
     console.error(err);
   }
 };
-API to Generate Content:
 
-```javascript```
-
+// API endpoint to generate content
 app.get('/api/content', async (req, res) => {
   try {
     const data = req.body.question;
@@ -98,23 +110,34 @@ app.get('/api/content', async (req, res) => {
     res.status(500).send("Error in generating content");
   }
 });
-Running the Application
-Start the server:
+
+// Start the server
+app.listen(port, () => {
+  console.log(`Server is running on port ${port}`);
+});
+
+
+## Running the Application
+### Start the server: 
+Run the following command in your terminal:
 
  ```bash```
 
 node app.js
-Test the API using tools like Postman or CURL:
 
-Example request:
- ```bash```
+## Test the API
 
+You can test the API using tools like Postman or CURL:
+
+### Example Request
+```bash```
 curl -X GET http://localhost:3000/api/content -H "Content-Type: application/json" -d '{"question":"What is the value of pi?"}'
-Dependencies
-@google/generative-ai: Communicates with Google Gemini API.
-body-parser: Parses incoming request bodies.
-dotenv: Loads environment variables from a .env file.
-express: Node.js framework for building web applications.
+
+## Dependencies
+- @google/generative-ai: Communicates with Google Gemini API.
+- body-parser: Parses incoming request bodies.
+- dotenv: Loads environment variables from a .env file.
+- express: Node.js framework for building web applications.
 
 
 ## Project Structure
