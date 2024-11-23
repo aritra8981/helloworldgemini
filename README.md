@@ -16,26 +16,26 @@ API_KEY=<your-google-generative-ai-api-key>
 
 
 ## Installation
-1. Clone the repository:
+1. **Clone the repository**:
+ ```bash```
+ git clone <repository-url>
+ cd <repository-folder>
 
+2. **Install dependencies**:
 
-git clone <repository-url>
-cd <repository-folder>
-
-
-2. Install dependencies:
-
-
+```bash```
 npm install
 
-3. Setup environment variables: Create a .env file in the root of the project and add your Google Generative AI API Key:
+3. **Setup environment variables**: Create a .env file in the root of the project and add your Google Generative AI API Key:
+
+```plaintext```
 
 
 API_KEY=your_api_key_here
 
 4. Run the application:
 
-
+```bash```
 node app.js
 
 ## API Endpoints
@@ -82,7 +82,7 @@ const generate = async (prompt) => {
 API to Generate Content:
 
 javascript
-Copy code
+
 app.get('/api/content', async (req, res) => {
   try {
     const data = req.body.question;
@@ -110,9 +110,8 @@ Dependencies
 body-parser: Parses incoming request bodies.
 dotenv: Loads environment variables from a .env file.
 express: Node.js framework for building web applications.
-Project Structure
-bash
-Copy code
+## Project Structure
+
 ├── app.js          # Main application file
 ├── package.json    # Project dependencies and scripts
 ├── .env            # API key for Google Gemini
