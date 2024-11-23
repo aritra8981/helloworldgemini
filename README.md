@@ -118,7 +118,9 @@ express: Node.js framework for building web applications.
 ├── package.json    # Project dependencies and scripts
 ├── .env            # API key for Google Gemini
 └── README.md       # Project documentation
-Notes
+
+
+##Notes
 Ensure your .env file is not included in version control for security purposes.
 The API key must have proper permissions for accessing the Gemini model.
 License
