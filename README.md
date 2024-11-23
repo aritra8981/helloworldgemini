@@ -114,7 +114,7 @@ express: Node.js framework for building web applications.
 
 ## Project Structure
 
-├── app.js          # Main application file
+├── main.js         # Main application file
 ├── package.json    # Project dependencies and scripts
 ├── .env            # API key for Google Gemini
 └── README.md       # Project documentation
